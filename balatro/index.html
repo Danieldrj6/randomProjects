@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balatrin</title>
+</head>
+<body style="background-color: #F0E2DD;">
+    
+    <img src="img/balatrin.png" alt="balatro" style="width: 20%; display: block; margin: auto;">
+    <h1 style="text-align: center; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Wenas intenta acceder a la pagina real<br> de este proyecto!</h1>
+    <button id="botonRojo" style="display: block; margin: 0 auto; background-color: red; height: 6vh; width: 15vh; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Click me!</button>
+    <script>
+
+        const paginas = ["https://www.duoc.cl/alumnos/ava-blackboard/", "https://playvalorant.com/es-mx/", "https://newcp.net/es-LA/", "https://www.leagueoflegends.com/es-es/", "https://cl.indeed.com/", "https://www.linkedin.com/feed/", "https://ollama.com/", "avatar/005D/Avatar/index.html", "solucionEj2/index.html"]
+        const boton = document.getElementById("botonRojo")
+
+        boton.addEventListener("click", () => {
+            const randomNumber = Math.floor(Math.random() * paginas.length);
+
+            const randomPagina = paginas[randomNumber];
+
+            window.open(randomPagina, "_blank");
+
+        });
+
+    </script>
+
+</body>
+</html>
