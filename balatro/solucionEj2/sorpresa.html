@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorpresa</title>
+</head>
+<body style="background-color: #1A1A1A;">
+    
+    <h1 style="color: whitesmoke; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center;">Super mega hiper Vinilo prime<br>y datos randoms</h1>
+    <h2 style="color: whitesmoke; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: left; margin-left: 20px; position: fixed; top: 10px;"><a href="index.html">Atras</a></h2>
+
+    <h2 id="datoRandom" style="color: whitesmoke; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; margin-left: 20px; margin-top: 50px;">Cargando dato...</h2>
+
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 50px;">
+        <video id="miVideo" width="30%" autoplay loop muted><source src="img2/videoss.mp4" type="video/mp4"></video>
+          <button id="botonSonido" style="padding: 10px 20px; font-size: 16px; margin-left: 20px; cursor: pointer;">
+         Activar sonido
+  </button>
+        <script>
+        const video = document.getElementById('miVideo');
+        const boton = document.getElementById('botonSonido');
+
+        boton.addEventListener('click', () => {
+            video.muted = !video.muted;
+            if (video.muted) {
+            boton.textContent = 'Activar sonido';
+            } else {
+            boton.textContent = 'Silenciar';
+            }
+        });
+        </script>
+    </div>
+
+<script>
+    fetch('https://uselessfacts.jsph.pl/api/v2/facts/random')
+        .then(response => response.json())
+        .then(datos => {
+            document.getElementById("datoRandom").innerHTML = "El dato de hoy es: " + datos.text;
+            console.log("dato random: " + datos.text);
+        })
+        .catch(error => console.error("Error:", error));
+</script>
+
+</body>
+</html>
